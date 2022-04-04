@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head>
+    <title>User</title>
+    <meta charset="UTF-8">
+
+    <th:block th:replace="/fragments/header.html"></th:block>
+</head>
+
+<body>
+    <div class="container">
+        <div th:replace="/fragments/navbar>">
+
+        </div>
+
+        <form th:action="@{/follow}+${user.username}">
+            <button style="float:right" type="Submit" class="btn btn-lg btn-succes">Follow</button>
+        </form>
+
+        <form>
+            <button style="float:right" type="Submit" class="btn btn-lg btn-primary unfollow_btn">following</button>
+        </form>
+
+        <h2>Profile for
+            <span th:text="${user.firstName}"></span>
+            <span th:text="${user.lastName}"></span>
+            <span style="color: #00aced;">
+                @<span th:text="${user.username}"></span>
+        </h2>
+
+        <h5>Joined <span th:text="${#dates.format(user.createdAt, 'dd MMM yyyy')}"></span></h5>
+        <h3>Tweets</h3>
+        <div class="list-group" th:each="tweet:${tweetList}">
+            <div class="list-group" th:each="tweet:${tweetList}">
+                <div class="d-flex w-100 justify-content-between"></div>"
+            </div>
+        </div>
+
+        <form th:action="@{/follow}+${user.username}">
+           th:if=${followingStatus.containsKey(user.username)}
+            th:if
